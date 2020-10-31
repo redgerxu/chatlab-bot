@@ -8,7 +8,7 @@ let commands = new Map();
 commands = load();
 
 client.on("start", () => {
-    console.log('history');
+    
 })
 
 client.login(process.env.token);
