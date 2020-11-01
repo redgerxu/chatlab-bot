@@ -1,26 +1,27 @@
-import discord from "discord.js";
-// import fs from "fs";
+import Eris from "eris";
+import fs from "fs";
 require("dotenv").config();
-import load from "./helper";
+const client = new Eris.CommandClient(process.env.token! ,{},{
+    prefix: "-"
+});
 
-const client = new discord.Client();
-let commands = new Map();
-commands = load();
+client.registerCommand("ping", (message: Eris.Message):void => {
+    message.channel.createMessage("Pong!");
+}, {});
 
-client.on("message", (message: discord.Message) => {
-    if (!message.content.startsWith("-") || !message.guild || message.author.bot) return;
-    const command = message.content.split(" ")[0].slice(1);
-    const args = message.content.split(" ").slice(1);
-    try { 
-        commands.get(command).execute(message, args);
-    } catch (err) {
-        console.log(err);
+client.registerCommand("ban", (message: Eris.Message, args: string[]): void => {
+    const target = message.mentions[0];
+    let reason: string | undefined = args.join(" ");
+    if (!reason.replace(/\s/g, '').length) reason = undefined;
+    try {
+        client.banGuildMember(message.guildID!, message.author.id, 0, reason);
+    } catch {
+        message.channel.createMessage("An error occured. :(")
     }
-})
+}, {})
 
 client.on("ready", () => {
     console.log("started");
-    console.table(commands);
 })
 
-client.login(process.env.token);
+client.connect();
