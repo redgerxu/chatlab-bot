@@ -5,7 +5,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "server": "ts-node src/server.ts"
   },
   "dependencies": {
     "@types/node": "^14.14.6",
