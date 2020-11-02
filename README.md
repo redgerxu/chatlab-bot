@@ -1,7 +1,5 @@
----
-title: **Chatlab Bot**
-description: Chatlab's Private Discord Bot
----
+**Chatlab Bot**
+Chatlab's Private Discord Bot
 
 [Join](https://discord.gg/J5VHMyz) the server!
 
