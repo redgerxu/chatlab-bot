@@ -10,6 +10,7 @@ client.registerCommand("ping", (message: Eris.Message):void => {
 }, {});
 
 client.registerCommand("ban", (message: Eris.Message, args: string[]): void => {
+    if (!(message.member!.permission.json.ban)) return;
     const target = message.mentions[0];
     let reason: string | undefined = args.join(" ");
     if (!reason.replace(/\s/g, '').length) reason = undefined;
@@ -22,6 +23,7 @@ client.registerCommand("ban", (message: Eris.Message, args: string[]): void => {
 }, {})
 
 client.registerCommand("kick", (message: Eris.Message, args: string[]): void => {
+    if (!(message.member!.permission.json.kick)) return;
     const target = message.mentions[0];
     let reason: string | undefined = args.join(" ");
     if (!reason.replace(/\s/g, '').length) reason = undefined;
