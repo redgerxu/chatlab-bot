@@ -6,15 +6,3 @@ Chatlab's Private Discord Bot
 Chatlab is a new server for chatting, gaming, coding, or basically any topic you want. Seriously. We have over 20 public channels and 70 members, a helpful staff team, frequent giveaways, and 20+ emojis! Our server recently hit 70 members and is growing quite quickly!
 
 So what’re you waiting for? Join the server today!
-
-Installing the bot (for your own server i guess)
-1. Install Github CLI from [here](https://github.com/cli/cli#installation)\
-**OR**\
-Download the code (scroll up)
-
-2. Open up Command Prompt/Terminal/Powershell and type `cd` and then the path to where you downloaded your file\
-Example:\
-Code downloaded in Documents\
-Type `cd Documents/chatlab-bot`\
-
-3. Run `npm start` or `yarn start`
