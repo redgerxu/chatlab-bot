@@ -1,61 +1,41 @@
-import Eris from "eris";
+import discord from "discord.js";
+import "dotenv/config";
 import fs from "fs";
-require("dotenv").config();
-const client = new Eris.CommandClient(process.env.token! ,{},{
-    prefix: process.env.prefix!
-});
 
-client.registerCommand("ping", (message: Eris.Message):void => {
-    message.channel.createMessage("Pong!");
-}, {});
+/*
+interface epicClient extends discord.Client {
+    commands: Map<string, NodeModule>
+}
+*/
+// still working on above ^
 
-client.registerCommand("ban", (message: Eris.Message, args: string[]): void => {
-    if (!message.member!.permission.json.banMembers) return;
-    const target = message.mentions[0];
-    let reason: string | undefined = args.join(" ");
-    if (!reason.replace(/\s/g, '').length) reason = undefined;
-    client.banGuildMember(message.guildID!, target.id, 0, reason)
-        .then(result => message.channel.createMessage(`Banned ${target.username}`))
-        .catch((err) => {
-            message.channel.createMessage("An error occured. :(")
-            console.error(err);
-        });
-}, {})
+const client = new discord.Client();
+const commands = new Map();
 
-client.registerCommand("kick", (message: Eris.Message, args: string[]): void => {
-    if (!(message.member!.permission.json.kickMembers)) return;
-    const target = message.mentions[0];
-    let reason: string | undefined = args.join(" ");
-    if (!reason.replace(/\s/g, '').length) reason = undefined;
-    client.kickGuildMember(message.guildID!, target.id, reason)
-        .then(() => message.channel.createMessage(`Kicked ${target.username}`))
-        .catch((err) => {
-            message.channel.createMessage("An error occured. :(")
-            console.error(err);
-        });
-}, {})
+// commmand loading
+const files = fs.readdirSync(__dirname + "/commands/").filter(file => file.endsWith(".ts"));
+for (const file of files) {
+    const command = require(`./commands/${file}`);
+    commands.set(command.name, command);
+}
 
-client.registerCommand("mute", (message: Eris.Message, args: string[]): void => {
-    if (!(message.member!.permission.json.manageMessages)) return;
-    const target = message.mentions[0];
-    let reason: string | undefined = args.join(" ");
-    if (!reason.replace(/\s/g, '').length) reason = undefined;
-    const role = message.member!.guild.roles.filter(r => r.name.toLowerCase().includes("mute"))[0];
-    const roles = message.member!.roles;
-    if (roles.includes(role.id)) {
-        message.channel.createMessage(`${target.username} is already muted`);
-        return;
+client.on("message", (message: discord.Message): void => {
+    if (!message.guild) return;
+    if (message.author.bot) return;
+    if (!message.content.startsWith(process.env.prefix!)) return;
+    
+    const command = message.content.split(" ")[0].slice(1);
+    const args = message.content.split(" ").slice(1);
+    try {
+        commands.get(command).exec(message, args);
+    } catch (err) {
+        console.error(err);
     }
-    client.addGuildMemberRole(message.guildID!, target.id, role!.id, reason)
-        .then(() => message.channel.createMessage(`Muted ${target.username}`))
-        .catch((err) => {
-            message.channel.createMessage("An error occured. :(");
-            console.error(err);
-        });
 })
 
 client.on("ready", () => {
-    console.log(`${client.user.username} started`);
+    console.log(`${client.user!.username} has started`);
+    console.table(commands);
 })
 
-client.connect();
+client.login(process.env.token!);
