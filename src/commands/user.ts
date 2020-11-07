@@ -1,7 +1,8 @@
 import { GuildMember, Message, MessageEmbed } from "discord.js";
+import { commandName } from "../resources/helper";
 
 module.exports = {
-    name: "user",
+    name: commandName(__filename),
     exec: (message: Message) => {
         let target: GuildMember;
         if (!message.mentions.members!.first()) {

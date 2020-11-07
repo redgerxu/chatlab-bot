@@ -18,5 +18,7 @@
     "express": "^4.17.1",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5"
-  }
+  },
+  "repository": "https://github.com/narutopig/chatlab-bot.git",
+  "author": "narutopig <redgerxu@gmail.com>"
 }
