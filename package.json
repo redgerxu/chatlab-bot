@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "start": "ts-node src/index.ts",
-    "server": "ts-node src/server.ts"
+    "server": "ts-node src/server.ts",
+    "hs": "npm i && ts-node src/index.ts"
   },
   "dependencies": {
     "@types/express": "^4.17.8",
