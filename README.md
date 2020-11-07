@@ -1,4 +1,4 @@
-# **Chatlab Bot**\
+# **Chatlab Bot** \
 Chatlab's Private Discord Bot
 
 [Join the server!](https://discord.gg/J5VHMyz)
@@ -18,7 +18,7 @@ Chatlab's Private Discord Bot
     - Type `yarn install` or `npm install`
 3. Go to the [Discord Developer Portal](https://discord.com/developers/applications) and press "New Application"
 4. Go to "Bot" and click "Add bot"
-5. Copy the token and create a new file in the root directory of the code (where package.json is) called .env and paste in\
+5. Copy the token and create a new file in the root directory of the code (where package.json is) called .env and paste in \
 `token=your token here`
 6. Go to the "OAuth2" section and select the bot scope and then select the permissions you want the bot to have.
 7. Copy the link and open in a new tab.
