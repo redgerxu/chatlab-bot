@@ -28,4 +28,4 @@ module.exports = {
 		}
 		message.channel.send(embeds.successEmbed(`Unmuted ${target.user.username}`));
 	}
-}
+};

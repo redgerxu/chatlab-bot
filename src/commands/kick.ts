@@ -20,11 +20,11 @@ module.exports = {
         }
         const reason = args.join(" ");
         try {
-            await target.kick(reason)
+            await target.kick(reason);
         } catch {
             message.channel.send(embeds.errorEmbed("I cannot kick that user"));
             return;
         }
         message.channel.send(embeds.successEmbed(`Kicked ${target.user.username}`));
     }
-}
+};
