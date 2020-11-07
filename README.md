@@ -1,4 +1,4 @@
-# **Chatlab Bot** \
+# **Chatlab Bot**
 Chatlab's Private Discord Bot
 
 [Join the server!](https://discord.gg/J5VHMyz)
