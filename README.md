@@ -1,9 +1,9 @@
-#**Chatlab Bot**\
+# **Chatlab Bot**\
 Chatlab's Private Discord Bot
 
 [Join the server!](https://discord.gg/J5VHMyz)
 
-#How to Install (For your own server)
+# How to Install (For your own server)
 
 1. Download the code
     - Use either git clone https://github.com/narutopig/chatlab-bot in your desired directory
