@@ -1,2 +1,1 @@
-worker: yarn start
-web: yarn server
+worker: npm hs
