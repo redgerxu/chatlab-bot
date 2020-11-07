@@ -10,17 +10,31 @@ module.exports = {
         } else {
             target = message.mentions.members!.first()!;
         }
+
         const formatTime = () => {
             const date = target.joinedAt;
             return `${date!.getMonth() + 1}/${date!.getDate()}/${date!.getUTCFullYear()}`;
-        }
+        };
+
         const embed = new MessageEmbed()
             .setAuthor(`${target!.user.username}${target!.user.discriminator}`, target.user.displayAvatarURL())
-            .addFields(
-                {name: "Joined At:", value: `${formatTime()}`},
-                {name: "Nickname", value: `${target.nickname}`}
-            )
-            .setColor(target!.displayHexColor)
+            .setColor(target!.displayHexColor);
+
+        let rolesString = "";
+        for (const role of target.roles.cache) {
+            rolesString += role[1].toString() + ", ";
+        }
+
+        rolesString.slice(0,-1); // remove extra char
+
+        embed.addFields(
+            {name: "Roles", value: rolesString, inline: false},
+            {name: "Joined At", value: `${formatTime()}`, inline: true},
+            {name: "Nickname", value: `${target.nickname}`, inline: true},
+            {name: "Human", value: `${!target.user.bot}`, inline: true},
+            {name: "ID", value: target.user.id}
+        );
+
         message.channel!.send(embed);
     }
-}
+};
