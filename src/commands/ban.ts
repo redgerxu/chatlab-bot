@@ -27,4 +27,4 @@ module.exports = {
         }
         message.channel.send(embeds.successEmbed(`Banned ${target.user.username}`));
     }
-}
+};

@@ -32,4 +32,4 @@ module.exports = {
         }
         message.channel.send(embeds.successEmbed(`Muted ${target.user.username}`));
     }
-}
+};

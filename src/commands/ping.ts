@@ -6,4 +6,4 @@ module.exports = {
     exec: (message: Message): void => {
         message.channel.send("Pong!");
     }
-}
+};
