@@ -1,6 +1,7 @@
 import discord from "discord.js";
 import "dotenv/config";
 import fs from "fs";
+import { isConstructorDeclaration } from "typescript";
 
 /*
 interface epicClient extends discord.Client {
@@ -22,9 +23,8 @@ for (const file of files) {
 client.on("message", async (message: discord.Message): Promise<void> => {
     if (!message.guild) return;
     if (message.author.bot) return;
-    if (!message.content.startsWith(process.env.prefix!)) return;
-    
-    const mutedRole = message.guild.roles.cache.get("Muted");
+
+    const mutedRole = message.guild!.roles.cache.filter(r => r.name == "Muted").first();
 
     if (mutedRole) {
         if (message.member!.roles.cache.has(mutedRole!.id)) {
@@ -35,6 +35,9 @@ client.on("message", async (message: discord.Message): Promise<void> => {
             }
         }
     }
+
+    if (!message.content.startsWith(process.env.prefix!)) return;
+    
     const command = message.content.split(" ")[0].slice(1);
     const args = message.content.split(" ").slice(1);
     try {
