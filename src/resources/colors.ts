@@ -8,4 +8,4 @@ export let colors = {
     bisque: "#FFE4C4",
     black: "#000000",
     blanchedAlmond: "#FFEBCD"
-}
+};

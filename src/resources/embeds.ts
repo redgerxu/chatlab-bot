@@ -8,7 +8,7 @@ export const errorEmbed = (msg: string, color?: string): MessageEmbed => {
         .setColor(color)
         .setTimestamp();
     return embed;
-}
+};
 
 export const successEmbed = (msg: string, color?: string): MessageEmbed => {
     if (!color) color = "#00FF00";
@@ -17,4 +17,4 @@ export const successEmbed = (msg: string, color?: string): MessageEmbed => {
         .setColor(color)
         .setTimestamp();
     return embed;
-}
+};
