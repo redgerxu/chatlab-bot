@@ -1,14 +1,6 @@
 import discord from "discord.js";
 import "dotenv/config";
 import fs from "fs";
-import { isConstructorDeclaration } from "typescript";
-
-/*
-interface epicClient extends discord.Client {
-    commands: Map<string, NodeModule>
-}
-*/
-// still working on above ^
 
 const client = new discord.Client();
 const commands = new Map();
@@ -45,12 +37,12 @@ client.on("message", async (message: discord.Message): Promise<void> => {
     } catch (err) {
         console.error(err);
     }
-})
+});
 
 client.on("ready", () => {
     console.log(`${client.user!.username} has started`);
     console.table(commands);
     client.user!.setActivity("games", {type: "PLAYING"});
-})
+});
 
 client.login(process.env.token!);
