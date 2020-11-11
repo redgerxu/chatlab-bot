@@ -6,7 +6,7 @@ module.exports = {
     exec: (message: Message, args: string[]) => {
         let target = message.mentions.members!.first() || message.member; // || message.guild!.members.cache.get(args[0])
         const embed = new MessageEmbed()
-            .setAuthor(`${target!.user.username}${target!.user.discriminator}`, target!.user.displayAvatarURL())
+            .setAuthor(`${target!.user.username}#${target!.user.discriminator}`, target!.user.displayAvatarURL())
             .setColor(target!.displayHexColor);
 
         embed.addFields(

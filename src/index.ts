@@ -13,6 +13,7 @@ for (const file of files) {
 }
 
 client.on("message", async (message: discord.Message): Promise<void> => {
+    console.log(`${message.author.username}#${message.author.discriminator}: ${message.content}`);
     if (!message.guild) return;
     if (message.author.bot) return;
 
