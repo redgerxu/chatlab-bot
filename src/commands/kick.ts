@@ -4,6 +4,8 @@ import { commandName } from "../resources/helper";
 
 module.exports = {
     name: commandName(__filename),
+    description: "Kicks a mentioned user",
+    usage: "-kick <mentioned user>",
     exec: async (message: Message, args: string[]): Promise<void> => {
         if (!message.member!.hasPermission("KICK_MEMBERS")) {
             message.channel.send(embeds.errorEmbed("Insufficient Permissions"));

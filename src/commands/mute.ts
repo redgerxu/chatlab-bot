@@ -4,6 +4,8 @@ import { commandName } from "../resources/helper";
 
 module.exports = {
     name: commandName(__filename),
+    description: "Adds the Muted role to a mentioned user, if it exists",
+    usage: "-mute <mentioned user>",
     exec: async (message: Message, args: string[]): Promise<void> => {
         if (!message.member!.hasPermission("MUTE_MEMBERS")) {
             message.channel.send(embeds.errorEmbed("Insufficient Permissions"));
