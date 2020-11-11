@@ -2,12 +2,6 @@ import discord from "discord.js";
 import "dotenv/config";
 import fs from "fs";
 import * as load from "./resources/load";
-/*
-interface epicClient extends discord.Client {
-    commands: Map<string, NodeModule>
-}
-*/
-// still working on above ^
 
 const client = new discord.Client();
 const commands = new Map();
