@@ -42,7 +42,8 @@ client.on("message", async (message: discord.Message): Promise<void> => {
 client.on("ready", () => {
     console.log(`${client.user!.username} has started`);
     console.table(commands);
-    client.user!.setActivity("games", {type: "PLAYING"});
+    client.user!.setActivity("with Typescript", {type: "PLAYING"})
+        .catch(err => console.log);
 });
 
 client.login(process.env.token!);
