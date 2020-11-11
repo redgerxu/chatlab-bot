@@ -28,6 +28,6 @@ unmute - Unmutes a user so they can speak in voice channels again.
 unmute usage: -unmute @user#0000
 
 user - Shows information about a user in the server.
-user usage: -user @user#0000!");
+user usage: -user @user#0000!"(;)
     }
 };
