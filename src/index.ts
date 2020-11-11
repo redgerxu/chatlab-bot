@@ -1,6 +1,15 @@
 import discord from "discord.js";
 import "dotenv/config";
 import fs from "fs";
+<<<<<<< HEAD
+=======
+/*
+interface epicClient extends discord.Client {
+    commands: Map<string, NodeModule>
+}
+*/
+// still working on above ^
+>>>>>>> production
 
 const client = new discord.Client();
 const commands = new Map();
@@ -13,6 +22,7 @@ for (const file of files) {
 }
 
 client.on("message", async (message: discord.Message): Promise<void> => {
+    console.log(`${message.author.username}#${message.author.discriminator}: ${message.content}`);
     if (!message.guild) return;
     if (message.author.bot) return;
 
@@ -42,8 +52,12 @@ client.on("message", async (message: discord.Message): Promise<void> => {
 client.on("ready", () => {
     console.log(`${client.user!.username} has started`);
     console.table(commands);
+<<<<<<< HEAD
     client.user!.setActivity("with Typescript", {type: "PLAYING"})
         .catch(err => console.log);
+=======
+    client.user!.setActivity("games", {type: "PLAYING"});
+>>>>>>> production
 });
 
 client.login(process.env.token!);
