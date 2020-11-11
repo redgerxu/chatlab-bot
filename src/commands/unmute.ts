@@ -3,7 +3,9 @@ import * as embeds from "../resources/embeds";
 import { commandName } from "../resources/helper";
 
 module.exports = {
-	name: commandName(__filename),
+    name: commandName(__filename),
+    description: "Removes a role named Muted from a user",
+    usage: "-unmute <mentioned user>",
 	exec: async (message: Message, args: string[]): Promise<void> => {
 		if (!message.member!.hasPermission("MUTE_MEMBERS")) {
 			message.channel.send(embeds.errorEmbed("Insufficient Permissions"));

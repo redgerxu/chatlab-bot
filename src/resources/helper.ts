@@ -15,13 +15,12 @@ export let randint = (max: number): number => {
     return Math.floor((Math.random() * max));
 };
 
-/*
-export let randprop = (obj: object): object=> {
+export let randprop = <T extends object>(obj: T) => {
     const keys = Object.keys(obj);
     const key = keys[randint(keys.length)];
-    return obj[key];
+  
+    return obj[key as keyof T];
 };
-*/
 
 export let title = (str: string, separator?: string): string => {
     if (!separator) separator = "_";

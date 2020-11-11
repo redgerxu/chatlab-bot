@@ -3,6 +3,8 @@ import { commandName, formatTime } from "../resources/helper";
 
 module.exports = {
     name: commandName(__filename),
+    description: "Fetches some user info",
+    usage: "-user <mentioned user>",
     exec: (message: Message, args: string[]) => {
         let target = message.mentions.members!.first() || message.member; // || message.guild!.members.cache.get(args[0])
         const embed = new MessageEmbed()
