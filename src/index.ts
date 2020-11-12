@@ -39,6 +39,10 @@ client.on("message", async (message: discord.Message): Promise<void> => {
             let command: object | undefined | unknown;
             command = commands.get(commandName);
             if (command) return command;
+<<<<<<< HEAD
+            
+=======
+>>>>>>> production
         };
         const command = commands.get(commandName); // || commands.for(cmd => cmd.aliases && cmd.aliases.includes(commandName));
         command.exec(message, args);
