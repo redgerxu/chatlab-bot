@@ -35,7 +35,17 @@ client.on("message", async (message: discord.Message): Promise<void> => {
     const command = message.content.split(" ")[0].slice(1);
     const args = message.content.split(" ").slice(1);
     try {
+<<<<<<< Updated upstream
         commands.get(command).exec(message, args);
+=======
+        const getCommand = (commandName: string): object | unknown | undefined => {
+            let command: object | undefined | unknown;
+            command = commands.get(commandName);
+            if (command) return command;
+        };
+        const command = commands.get(commandName); // || commands.for(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        command.exec(message, args);
+>>>>>>> Stashed changes
     } catch (err) {
         console.error(err);
     }
