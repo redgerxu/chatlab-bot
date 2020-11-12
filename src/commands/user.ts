@@ -1,5 +1,6 @@
 import { GuildMember, Message, MessageEmbed } from "discord.js";
-import { commandName, formatTime } from "../resources/helper";
+import { commandName, formatTime, randprop } from "../resources/helper";
+import { colors } from "../resources/colors";
 
 module.exports = {
     name: commandName(__filename),
@@ -9,7 +10,7 @@ module.exports = {
         let target = message.mentions.members!.first() || message.member; // || message.guild!.members.cache.get(args[0])
         const embed = new MessageEmbed()
             .setAuthor(`${target!.user.username}#${target!.user.discriminator}`, target!.user.displayAvatarURL())
-            .setColor(target!.displayHexColor);
+            .setColor(randprop(colors));
 
         embed.addFields(
             {name: "Roles", value: target!.roles.cache.array().join(" "), inline: false},

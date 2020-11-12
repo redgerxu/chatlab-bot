@@ -2,12 +2,6 @@ import discord from "discord.js";
 import "dotenv/config";
 import fs from "fs";
 import * as load from "./resources/load";
-/*
-interface epicClient extends discord.Client {
-    commands: Map<string, NodeModule>
-}
-*/
-// still working on above ^
 
 const client = new discord.Client();
 const commands = new Map();
@@ -38,10 +32,17 @@ client.on("message", async (message: discord.Message): Promise<void> => {
 
     if (!message.content.startsWith(process.env.prefix!)) return;
     
-    const command = message.content.split(" ")[0].slice(1);
+    const commandName = message.content.split(" ")[0].slice(1);
     const args = message.content.split(" ").slice(1);
     try {
-        commands.get(command).exec(message, args);
+        const getCommand = (commandName: string): object | unknown | undefined => {
+            let command: object | undefined | unknown;
+            command = commands.get(commandName);
+            if (command) return command;
+            
+        };
+        const command = commands.get(commandName); // || commands.for(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        command.exec(message, args);
     } catch (err) {
         console.error(err);
     }
