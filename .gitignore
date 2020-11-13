@@ -4,3 +4,5 @@ env/
 *.log
 node_modules/
 */node_modules
+.vscode/
+*/.vscode

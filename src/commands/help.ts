@@ -24,8 +24,8 @@ module.exports = {
                 }
                 embed.setTitle(`${process.env.prefix}${cname}`)
                     .addFields(
-                        {name: "Description", value: command.description || "Not Provided"},
-                        {name: "Usage", value: command.usage || "Not Provided"}    
+                        { name: "Description", value: command.description || "Not Provided" },
+                        { name: "Usage", value: command.usage || "Not Provided" }
                     )
                     .setColor(randprop(colors))
                     .setTimestamp();

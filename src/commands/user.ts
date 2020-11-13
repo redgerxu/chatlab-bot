@@ -13,11 +13,11 @@ module.exports = {
             .setColor(randprop(colors));
 
         embed.addFields(
-            {name: "Roles", value: target!.roles.cache.array().join(" "), inline: false},
-            {name: "Joined At", value: `${formatTime(target!.joinedAt!)}`, inline: true},
-            {name: "Nickname", value: `${target!.nickname || target!.user.username}`, inline: true},
-            {name: "Human", value: `${!target!.user.bot}`, inline: true},
-            {name: "ID", value: target!.user.id}
+            { name: "Roles", value: target!.roles.cache.array().join(" "), inline: false },
+            { name: "Joined At", value: `${formatTime(target!.joinedAt!)}`, inline: true },
+            { name: "Nickname", value: `${target!.nickname || target!.user.username}`, inline: true },
+            { name: "Human", value: `${!target!.user.bot}`, inline: true },
+            { name: "ID", value: target!.user.id }
         );
 
         message.channel!.send(embed);

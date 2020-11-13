@@ -26,12 +26,12 @@ module.exports = {
         const embed = new MessageEmbed() // oh boy this is a long one
             .setTitle(pdata.name)
             .addFields(
-                {name: "First Login", value: helper.formatTime(player.firstLogin) || "N/A", inline: true},
-                {name: "Last Login", value: helper.formatTime(player.lastLogin) || "N/A", inline: true},
-                {name: "Karma", value: player.karma || "N/A", inline: true},
-                {name: "Achievement Points", value: player.achievementPoints || "N/A", inline: true},
-                {name: "Version", value: player.mcVersionRp || "N/A", inline: true},
-                {name: "Online", value: helper.yesno(status.session.online), inline: true}
+                { name: "First Login", value: helper.formatTime(player.firstLogin) || "N/A", inline: true },
+                { name: "Last Login", value: helper.formatTime(player.lastLogin) || "N/A", inline: true },
+                { name: "Karma", value: player.karma || "N/A", inline: true },
+                { name: "Achievement Points", value: player.achievementPoints || "N/A", inline: true },
+                { name: "Version", value: player.mcVersionRp || "N/A", inline: true },
+                { name: "Online", value: helper.yesno(status.session.online), inline: true }
             )
             .setColor(helper.randprop(colors))
             .setTimestamp();

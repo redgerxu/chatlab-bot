@@ -12,7 +12,7 @@ module.exports = {
             return;
         }
         const target = message.mentions.members!.first();
-        if(!target) {
+        if (!target) {
             message.channel.send(embeds.errorEmbed("No target (must be mention)"));
             return;
         }

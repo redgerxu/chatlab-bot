@@ -1,4 +1,6 @@
-import { readdirSync } from "fs";
+import {
+    readdirSync
+} from "fs";
 export let commands = new Map();
 
 // commmand loading

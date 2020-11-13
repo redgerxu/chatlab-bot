@@ -15,7 +15,7 @@ module.exports = {
             .setTitle(data.title)
             .setURL(urls.reddit + data.permalink)
             .setColor(randprop(colors))
-            .setFooter(`👍${data.ups}`)
+            .setFooter(`👍${data.ups} 💬${data.num_comments}`)
             .setImage(data.url);
         return message.channel.send(embed);
     }

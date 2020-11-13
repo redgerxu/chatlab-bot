@@ -12,7 +12,7 @@ module.exports = {
             return;
         }
         const target = message.mentions.members!.first();
-        if(!target) {
+        if (!target) {
             message.channel.send(embeds.errorEmbed("No target (must be mention)"));
             return;
         }
@@ -22,7 +22,7 @@ module.exports = {
         }
         const reason = args.join(" ");
         try {
-            await target.ban({reason: reason});
+            await target.ban({ reason: reason });
         } catch {
             message.channel.send(embeds.errorEmbed("I cannot ban that user"));
             return;

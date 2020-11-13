@@ -31,7 +31,7 @@ client.on("message", async (message: discord.Message): Promise<void> => {
     }
 
     if (!message.content.startsWith(process.env.prefix!)) return;
-    
+
     const commandName = message.content.split(" ")[0].slice(1);
     const args = message.content.split(" ").slice(1);
     try {
@@ -50,7 +50,9 @@ client.on("message", async (message: discord.Message): Promise<void> => {
 client.on("ready", () => {
     console.log(`${client.user!.username} has started`);
     console.table(commands);
-    client.user!.setActivity("with Typescript", {type: "PLAYING"})
+    client.user!.setActivity("Discord", {
+        type: "PLAYING"
+    })
         .catch(err => console.log(err));
 });
 
