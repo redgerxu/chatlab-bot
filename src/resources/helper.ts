@@ -12,7 +12,7 @@ export let formatTime = (t: any): string => {
 };
 
 export let randint = (max: number): number => {
-    return Math.floor((Math.random() * max));
+    return Math.floor(Math.random() * max);
 };
 
 export let randprop = <T extends object>(obj: T) => {
@@ -26,9 +26,7 @@ export let title = (str: string, separator?: string): string => {
     if (!separator) separator = "_";
     const s = str.split(separator);
     let gn: string[] = []; // too lazy to change var name
-    for (const w of s) {
-        gn.push(w[0].toUpperCase() + w.slice(1).toLowerCase());
-    }
+    for (const w of s) gn.push(w[0].toUpperCase() + w.slice(1).toLowerCase());
     return gn.join(" ");
 };
 

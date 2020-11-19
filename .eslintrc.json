@@ -12,13 +12,14 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "semi": [
+        "brace-style": [
             "warn",
-            "always"
+            "1tbs"
         ],
-        "quotes": [
+        "curly": [
             "warn",
-            "double"
+            "multi",
+            "consistent"
         ],
         "no-dupe-else-if": "error",
         "no-dupe-args": "error",
@@ -27,8 +28,21 @@
         "no-duplicate-case": "error",
         "no-duplicate-imports": "error",
         "no-unused-expressions": "warn",
-        "no-extra-parens": "error",
+        "no-extra-parens": "warn",
         "no-extra-semi": "error",
-        "no-var": "error"
+        "no-var": "error",
+        "quotes": [
+            "warn",
+            "double"
+        ],
+        "semi": [
+            "warn",
+            "always"
+        ],
+        "yoda": [
+            "error",
+            "never"
+        ],
+        "require-await": "error"
     }
 }

@@ -19,9 +19,7 @@ module.exports = {
             case "command":
                 const cname = args[0];
                 const command = commands.get(cname);
-                if (!command) {
-                    return message.channel.send(errorEmbed("Command not found"));
-                }
+                if (!command) return message.channel.send(errorEmbed("Command not found"));
                 embed.setTitle(`${process.env.prefix}${cname}`)
                     .addFields(
                         { name: "Description", value: command.description || "Not Provided" },

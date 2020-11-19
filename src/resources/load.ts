@@ -8,4 +8,4 @@ const files = readdirSync(__dirname + "/../commands/").filter(file => file.endsW
 for (const file of files) {
     const command = require(`../commands/${file}`);
     commands.set(command.name, command);
-};
+}
